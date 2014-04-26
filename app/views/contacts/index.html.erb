@@ -1,0 +1,24 @@
+<% provide :title, 'Home' %>
+<h1>Contacts</h1>
+<p>Валидация!!!</p>
+<%= link_to 'Main', contacts_path %>
+<%= link_to 'Edit contact', edit_contact_path(@contact) %>
+<h2>A user-contributed phone (and email) book.</h2>
+<table class="table">
+  <tr>
+    <td>Name</td>
+    <td>Phone</td>
+    <td>Email</td>
+  </tr>
+  <% @contact.each do |contact| %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.phone %></td>
+        <td><%= contact.email %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact)%></td>
+        <td><%= link_to 'Delete', contact, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
+
+<p><%= link_to 'Add contact', new_contact_path, :class => 'btn btn-primary' %></p>

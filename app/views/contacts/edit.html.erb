@@ -1,0 +1,6 @@
+<% provide :title, "Edit #{@contact.name}" %>
+
+<h1><%= yield :title %></h1>
+
+<%= render 'form' %>
+<p><%= link_to 'Add contact', contacts_path %></p>

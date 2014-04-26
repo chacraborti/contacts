@@ -1,0 +1,23 @@
+<% if @contact.errors.any? %>
+    <div class="alert alert-error">
+    <h3>Please correct these problems:</h3>
+    <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+      <% end %>
+    </ul>
+    </div>
+<% end %>
+
+<%= form_for @contact do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+    <%= f.label :email %>
+    <%= f.text_field :email %><br><br>
+    <div class="form-actions">
+      <%= f.submit :class => 'btn btn-primary' %>
+    </div>
+    <br>
+<% end %>
